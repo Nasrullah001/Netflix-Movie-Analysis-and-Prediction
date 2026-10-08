@@ -10,15 +10,32 @@ This repository contains four key data science workflows applied to the Netflix 
 - **Task 3: Recommendation System** — Building a TF-IDF and Cosine Similarity content-based recommendation engine.
 - **Task 4: Trend Prediction Analysis** — Forecasting future content growth trends using time-series linear regression.
 
+## Setup and run
+
+Use Python 3.11 for a compatible environment, then install the dashboard and
+notebook dependencies and start Streamlit:
+
+```powershell
+py -3.11 -m venv .venv311
+.\.venv311\Scripts\python.exe -m pip install -r requirements.txt
+.\.venv311\Scripts\python.exe -m streamlit run app.py
+```
+
+The dashboard reads `data/cleaned_netflix_data.csv` when available and falls
+back to `data/netflix_titles.csv`. Run commands from the project root or use
+the configured virtual environment; dataset paths are resolved relative to
+`app.py`.
+
 ## Repository Structure
 
 ```text
+├── app.py                    # Streamlit dashboard
 ├── data/
-│   ├── raw/                  # Original raw dataset
-│   └── processed/            # Cleaned CSV output
+│   ├── netflix_titles.csv    # Original dataset
+│   └── cleaned_netflix_data.csv
 ├── notebooks/
-│   ├── 01_data_cleaning_eda.ipynb
-│   ├── 02_recommendation_system.ipynb
-│   └── 03_trend_prediction.ipynb
+│   ├── data_cleaning_&_EDA.ipynb
+│   ├── recommendation_system_analysis.ipynb
+│   └── trend_prediction_analysis.ipynb
 ├── requirements.txt          # Python dependencies
 └── README.md                 # Project documentation
